@@ -1,0 +1,59 @@
+{
+  "name": "conff-db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:conff/conff-db.git",
+  "author": "Salim KAYABASI <salim.kayabasi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "major": "npm version major -m \"New major version %s\"",
+    "minor": "npm version minor -m \"New minor version %s\"",
+    "patch": "npm version patch -m \"New patch version %s\"",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "build": "babel ./src/  -d ./dist/",
+    "prestart": "yarn build",
+    "start": "node dist/index.js",
+    "pretest": "yarn lint",
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": [
+      "**/(__tests__|tests|test)/**/*.js?(x)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/coverage/**",
+      "!**/dist/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    }
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "log-with": "^1.2.1",
+    "mongoose": "^4.9.6",
+    "mongoose-schema-extend": "^0.2.2",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "jest": "^19.0.2"
+  }
+}
